@@ -32,13 +32,11 @@ $tableName = "users";
 $pathToStorage = $_SERVER["DOCUMENT_ROOT"] . "/App/Storage/";
 
 $database = new JsonDatabase($pathToStorage, "users", $columns);
-//$database->add($data);
-//$database->add($data2);
-//$database->add($data2);
-//dd($database->update(2, $dataNew));
-//$database->delete(3);
-//dd($database->readFile());
-
+$database->add($data);
+$database->add($data2);
+$database->add($data2);
+$database->delete(3);
+$database->update(2, $dataNew);
 
 $columns2 = [
     "id",
@@ -46,22 +44,4 @@ $columns2 = [
 ];
 
 $export = new JsonTableExporter($pathToStorage, "users", $columns2);
-dd($export->export());
 $export->exportToFile("newUsers");
-
-
-
-
-
-function dd($var, $die = false) {
-    if ($die = false){
-        echo '<pre>';
-        var_dump($var);
-        echo '</pre>';
-    }else{
-        echo '<pre>';
-        var_dump($var);
-        echo '</pre>';
-        die();
-    }
-}
